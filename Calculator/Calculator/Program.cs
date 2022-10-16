@@ -1,23 +1,26 @@
 ﻿using System;
+using CalculatorLibrary;
 
 namespace Calculator
 {
+    
     class Program
     {
         static void Main(string[] args)
         {
             int lhs = 0;
             int rhs = 0;
-
+            string op = "";
 
             // Display title as the C# console calculator app.
             Console.WriteLine("-------------Console Calculator in C#-----------\n");
             Console.WriteLine("------------------------------------------------\n");
             Console.WriteLine("---------------Author: Delali Funani------------\n");
             bool play = true;
+            CalculatorOperations calculator = new CalculatorOperations();
             while (play)
             {
-                Console.WriteLine("Type a number, and then press Enter\n>");
+                Console.WriteLine("Type a number, and then press Enter>>>");
 
                 try
                 {
@@ -27,7 +30,7 @@ namespace Calculator
                 {
                     lhs = Convert.ToInt32(new Random().Next());
                 }
-                Console.WriteLine("Type a number, and then press Enter\n>");
+                Console.WriteLine("Type a number, and then press Enter>>>");
                 try
                 {
                     rhs = Convert.ToInt32(Console.ReadLine());
@@ -38,39 +41,18 @@ namespace Calculator
                 }
                 // Ask the user to choose an option.
                 Console.WriteLine("Choose an option from the following list:");
-                Console.WriteLine("\ta - Add");
-                Console.WriteLine("\ts - Subtract");
-                Console.WriteLine("\tm - Multiply");
-                Console.WriteLine("\td - Divide");
+                Console.WriteLine("\t+ - Add");
+                Console.WriteLine("\t- - Subtract");
+                Console.WriteLine("\t* - Multiply");
+                Console.WriteLine("\t/ - Divide");
                 Console.Write("Your option? ");
 
-                Console.WriteLine($"{lhs} {rhs}");
-                switch (Console.ReadLine().ToLower())
-                {
-                    case "a":
-                        Console.WriteLine(lhs + rhs);
-                        break;
-                    case "s":
-                        Console.WriteLine(lhs - rhs);
-                        break;
-                    case "m":
-                        Console.WriteLine(lhs * rhs);
-                        break;
-                    case "d":
-                        if (rhs == 0)
-                        {
-                            Console.WriteLine("Undefined");
-                        }
-                        else
-                        {
-                            Console.WriteLine(lhs / rhs);
-                        }
-                        break;
-                }
-
+                op = Console.ReadLine().ToLower();
+                Console.WriteLine($"{lhs} {op} {rhs} = {calculator.Arithmetic(lhs, rhs, op)}");
                 Console.WriteLine("Press 'n' and enter to continue");
                 if(Console.ReadLine().ToLower() != "n")
                 {
+                    calculator.CleanUp();
                     break;
                 }
             }
