@@ -14,57 +14,65 @@ namespace Calculator
             Console.WriteLine("-------------Console Calculator in C#-----------\n");
             Console.WriteLine("------------------------------------------------\n");
             Console.WriteLine("---------------Author: Delali Funani------------\n");
-
-
-            Console.WriteLine("Type a number, and then press Enter\n>");
-
-            try
+            bool play = true;
+            while (play)
             {
-                lhs = Convert.ToInt32(Console.ReadLine());
-            }
-            catch
-            {
-                lhs = Convert.ToInt32(new Random().Next());
-            }
+                Console.WriteLine("Type a number, and then press Enter\n>");
 
-            try
-            {
-                rhs = Convert.ToInt32(Console.ReadLine());
-            }
-            catch
-            {
-                rhs = Convert.ToInt32(new Random().Next());
-            }
-            // Ask the user to choose an option.
-            Console.WriteLine("Choose an option from the following list:");
-            Console.WriteLine("\ta - Add");
-            Console.WriteLine("\ts - Subtract");
-            Console.WriteLine("\tm - Multiply");
-            Console.WriteLine("\td - Divide");
-            Console.Write("Your option? ");
+                try
+                {
+                    lhs = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    lhs = Convert.ToInt32(new Random().Next());
+                }
+                Console.WriteLine("Type a number, and then press Enter\n>");
+                try
+                {
+                    rhs = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    rhs = Convert.ToInt32(new Random().Next());
+                }
+                // Ask the user to choose an option.
+                Console.WriteLine("Choose an option from the following list:");
+                Console.WriteLine("\ta - Add");
+                Console.WriteLine("\ts - Subtract");
+                Console.WriteLine("\tm - Multiply");
+                Console.WriteLine("\td - Divide");
+                Console.Write("Your option? ");
 
-            Console.WriteLine($"{lhs} {rhs}");
-            switch (Console.ReadLine().ToLower())
-            {
-                case "a":
-                    Console.WriteLine(lhs + rhs);
+                Console.WriteLine($"{lhs} {rhs}");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "a":
+                        Console.WriteLine(lhs + rhs);
+                        break;
+                    case "s":
+                        Console.WriteLine(lhs - rhs);
+                        break;
+                    case "m":
+                        Console.WriteLine(lhs * rhs);
+                        break;
+                    case "d":
+                        if (rhs == 0)
+                        {
+                            Console.WriteLine("Undefined");
+                        }
+                        else
+                        {
+                            Console.WriteLine(lhs / rhs);
+                        }
+                        break;
+                }
+
+                Console.WriteLine("Press 'n' and enter to continue");
+                if(Console.ReadLine().ToLower() != "n")
+                {
                     break;
-                case "s":
-                    Console.WriteLine(lhs - rhs);
-                    break;
-                case "m":
-                    Console.WriteLine(lhs* rhs);
-                    break;
-                case "d":
-                    if (rhs == 0)
-                    {
-                        Console.WriteLine("Undefined");
-                    }
-                    else
-                    {
-                        Console.WriteLine(lhs / rhs);
-                    }
-                    break;
+                }
             }
 
         }
