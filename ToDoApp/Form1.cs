@@ -7,11 +7,13 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
 
 namespace ToDoApp
 {
     public partial class Form1 : Form
     {
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-GUMF1SO;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); 
         DataTable table;
         public Dictionary<String, String[]> keyValuePairs= new Dictionary<String, String[]>(){};
         public Form1()
