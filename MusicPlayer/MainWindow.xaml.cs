@@ -20,10 +20,6 @@ namespace MusicPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Dictionary<String, List<String>> strings = new Dictionary<String, List<String>>() {
-            { "Library", new List<String>(){ "Home", "Playlists", "Artists", "Album", "Songs" }},
-           { "Discover", new List<String>(){"Store", "Radio", "For You"} }
-        };
         public MainWindow()
         {
             InitializeComponent();

@@ -1,10 +1,8 @@
 ﻿<Window x:Class="MusicPlayer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:MusicPlayer.UserControls"
         ResizeMode="NoResize"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -85,6 +83,64 @@
                             <Icon:PackIconMaterial Style="{StaticResource menuButtonIcon}"/>
                         </Grid>
                     </Button>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.RowSpan="2" Grid.Column="1" Margin="40 60 10 0" Background="White">
+                <TextBlock Text="Home" Style="{StaticResource titleText}"/>
+
+                <Border CornerRadius="20" Margin="0 20 0 0">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="RoyalBlue" Offset="0"/>
+                            <GradientStop Color="SkyBlue" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="#1faefe" Opacity="0.4"/>
+                    </Border.Effect>
+
+                    <Grid>
+                        <Border Opacity="0.07" CornerRadius="20">
+                            <Border.Background>
+                                <ImageBrush ImageSource="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\Profile Picture delalifunani.png"/>
+                            </Border.Background>
+                        </Border>
+                        <StackPanel Margin="30">
+                            <TextBlock Text="Album Name" Foreground="White" FontSize="26" FontWeight="Bold"/>
+                            <TextBlock Text="Artist Name" Foreground="#c0e6de" FontSize="18" FontWeight="SemiBold"/>
+
+                            <uc:SongItems Number="01" Title="Song Title 1" Time="00:00:00"/>
+                            <uc:SongItems Number="02" Title="Song Title 2" Time="00:00:00"/>
+                            <uc:SongItems Number="03" Title="Song Title 3" Time="00:00:00"/>
+                            <uc:SongItems Number="04" Title="Song Title 4" Time="00:00:00"/>
+                            <uc:SongItems Number="05" Title="Song Title 5" Time="00:00:00"/>
+                            <uc:SongItems Number="06" Title="Song Title 6" Time="00:00:00"/>
+                            <uc:SongItems Number="07" Title="Song Title 7" Time="00:00:00"/>
+                            <uc:SongItems Number="08" Title="Song Title 8" Time="00:00:00"/>
+                            <uc:SongItems Number="09" Title="Song Title 9" Time="00:00:00"/>
+                            <uc:SongItems Number="10" Title="Song Title 10" Time="00:00:00"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <Border Grid.Column="2" Grid.RowSpan="2" Background="White" Margin="0,22,50,25" CornerRadius="0 40 0 0">
+                <StackPanel Margin="30 50 30 0">
+                    <TextBlock Text="Most Played" Style="{StaticResource titleText}" Margin="0 0 0 10" FontSize="28"/>
+
+                    <uc:PopularSongs Title="Song Name" Time="00:00:00" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\Profile Picture delalifunani.png"/>
+                    <uc:PopularSongs Title="Song Name" Time="00:00:00" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\Profile Picture delalifunani.png"/>
+                    <uc:PopularSongs Title="Song Name" Time="00:00:00" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\Profile Picture delalifunani.png"/>
+                    <uc:PopularSongs Title="Song Name" Time="00:00:00" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\Profile Picture delalifunani.png"/>
+
+                    <TextBlock Text="Following" Style="{StaticResource titleText}" Margin="0 0 0 10" FontSize="28"/>
+
+                    <StackPanel Orientation="Horizontal" >
+                        <uc:Following Date="Following since 2022" Title="Artist" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\20221028_073111.jpg"/>
+                        <uc:Following Date="Following since 2022" Title="Artist" Image="C:\Users\dfuna\Documents\GitHub\My .Net Apps\MusicPlayer\Images\20221028_073111.jpg" Margin="4 0 0 0"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>

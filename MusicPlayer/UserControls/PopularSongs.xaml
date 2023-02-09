@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MusicPlayer.UserControls.PopularSongs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Name="popularSongs"
+             >
+    <Border CornerRadius="30" Padding="10" Margin="0 7" x:Name="border_popularsongs">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="AliceBlue"/>
+                
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="RoyalBlue"/>
+                    </Trigger>
+
+                    <DataTrigger Binding="{Binding ElementName=popularSongs, Path=IsActive}">
+                        <Setter Property="Background" Value="RoyalBlue"/>
+
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="40" Height="40" Margin="0 0 20 0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding ElementName=popularSongs, Path=Image}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <TextBlock Grid.Column="1" FontWeight="SemiBold" FontSize="16" Text="{Binding ElementName=popularSongs, Path=Title}" VerticalAlignment="Center" Margin="0 0 0 2"/>
+            <TextBlock Grid.Column="2" FontWeight="SemiBold" FontSize="14" Text="{Binding ElementName=popularSongs, Path=Time}" VerticalAlignment="Center" Margin="0 0 20 2" HorizontalAlignment="Right"/>
+        </Grid>
+    </Border>
+</UserControl>
