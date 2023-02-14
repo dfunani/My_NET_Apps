@@ -1,0 +1,60 @@
+﻿<Window x:Class="MyPainter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Name="window"
+        Title="MainWindow" Height="450" Width="800" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+    <Border CornerRadius="25" Padding="17" Background="black" Margin="10 10 10 10"  HorizontalAlignment="right" VerticalAlignment="Top">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="215"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Panel.ZIndex="1" VerticalAlignment="Top" Height="300" Margin="20 20 20 0" Background="Transparent" Grid.Column="1">
+                <Border  Visibility="{Binding ElementName=window,Path=ColorActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="0 0 0 -50">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse MouseDown="Ellipse_MouseDown_1" Fill="red" Height="40" Width="40"/>
+                        <Ellipse MouseDown="Ellipse_MouseDown_2" Fill="green" Height="40" Width="40"/>
+                        <Ellipse MouseDown="Ellipse_MouseDown_3" Fill="blue" Height="40" Width="40"/>
+                        <Ellipse MouseDown="Ellipse_MouseDown_4" Fill="black" Height="40" Width="40"/>
+                    </StackPanel>
+                </Border>
+                <Border Visibility="{Binding ElementName=window,Path=NotColorActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="120 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse MouseDown="Ellipse_MouseDown" Fill="black" Height="40" Width="40"/>
+                    </StackPanel>
+                </Border>
+
+                <Border  Visibility="{Binding ElementName=window,Path=FontActive}" Background="Gray" CornerRadius="20" Padding="7">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                            <Ellipse MouseDown="Ellipse_MouseDown_5" Fill="Black" Height="40" Width="40"/>
+                        </Border>
+                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                            <Ellipse MouseDown="Ellipse_MouseDown_6" Fill="Black" Height="35" Width="35"/>
+                        </Border>
+                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                            <Ellipse MouseDown="Ellipse_MouseDown_7" Fill="Black" Height="30" Width="30"/>
+                        </Border>
+                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                            <Ellipse MouseDown="Ellipse_MouseDown_8" Fill="Black" Height="25" Width="25"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=NotFontActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="120 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse MouseDown="Ellipse_MouseDown_X" Fill="black" Height="40" Width="40"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <Canvas Grid.ColumnSpan="2" Background="white" MouseMove="canvas_MouseMove" x:Name="canvas" Width="750" Height="400">
+
+
+            </Canvas>
+        </Grid>
+        
+    </Border>
+</Window>
