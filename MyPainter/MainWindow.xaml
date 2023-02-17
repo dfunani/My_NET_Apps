@@ -11,49 +11,46 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="215"/>
+               
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" Panel.ZIndex="1" VerticalAlignment="Top" Height="300" Margin="20 20 20 0" Background="Transparent" Grid.Column="1">
-                <Border  Visibility="{Binding ElementName=window,Path=ColorActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="0 0 0 -50">
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse MouseDown="Ellipse_MouseDown_1" Fill="red" Height="40" Width="40"/>
-                        <Ellipse MouseDown="Ellipse_MouseDown_2" Fill="green" Height="40" Width="40"/>
-                        <Ellipse MouseDown="Ellipse_MouseDown_3" Fill="blue" Height="40" Width="40"/>
-                        <Ellipse MouseDown="Ellipse_MouseDown_4" Fill="black" Height="40" Width="40"/>
-                    </StackPanel>
-                </Border>
-                <Border Visibility="{Binding ElementName=window,Path=NotColorActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="120 0 0 0">
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse MouseDown="Ellipse_MouseDown" Fill="black" Height="40" Width="40"/>
-                    </StackPanel>
-                </Border>
-
-                <Border  Visibility="{Binding ElementName=window,Path=FontActive}" Background="Gray" CornerRadius="20" Padding="7">
-                    <StackPanel Orientation="Horizontal">
-                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
-                            <Ellipse MouseDown="Ellipse_MouseDown_5" Fill="Black" Height="40" Width="40"/>
-                        </Border>
-                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
-                            <Ellipse MouseDown="Ellipse_MouseDown_6" Fill="Black" Height="35" Width="35"/>
-                        </Border>
-                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
-                            <Ellipse MouseDown="Ellipse_MouseDown_7" Fill="Black" Height="30" Width="30"/>
-                        </Border>
-                        <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
-                            <Ellipse MouseDown="Ellipse_MouseDown_8" Fill="Black" Height="25" Width="25"/>
-                        </Border>
-                    </StackPanel>
-                </Border>
-                <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=NotFontActive}" Background="Gray" CornerRadius="20" Padding="7" Margin="120 0 0 0">
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse MouseDown="Ellipse_MouseDown_X" Fill="black" Height="40" Width="40"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-            <Canvas Grid.ColumnSpan="2" Background="white" MouseMove="canvas_MouseMove" x:Name="canvas" Width="750" Height="400">
-
-
-            </Canvas>
+            <Border Padding="0 0 0 10">
+                <Canvas MouseUp="canvas_MouseUp" Background="white" MouseDown="canvas_MouseDown" MouseRightButtonDown="canvas_MouseRightButtonDown" MouseMove="canvas_MouseMove" x:Name="canvas" Width="750" Height="400">
+                    <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=ColorActive}" Margin="550 30 0 0" Background="transparent" CornerRadius="20" Padding="7" >
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse MouseDown="Ellipse_MouseDown_1" Fill="red" Height="40" Width="40"/>
+                            <Ellipse MouseDown="Ellipse_MouseDown_2" Fill="green" Height="40" Width="40"/>
+                            <Ellipse MouseDown="Ellipse_MouseDown_3" Fill="blue" Height="40" Width="40"/>
+                            <Ellipse MouseDown="Ellipse_MouseDown_4" Fill="black" Height="40" Width="40"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=NotColorActive}" Margin="680 30 0 0" Background="transparent" CornerRadius="20" Padding="7" >
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse MouseDown="Ellipse_MouseDown" Fill="Black" Height="40" Width="40"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=FontActive}" Margin="550 90 0 0" Background="transparent" CornerRadius="20" Padding="7">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                                <Ellipse MouseDown="Ellipse_MouseDown_5" Fill="Black" Height="40" Width="40"/>
+                            </Border>
+                            <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                                <Ellipse MouseDown="Ellipse_MouseDown_6" Fill="Black" Height="35" Width="35"/>
+                            </Border>
+                            <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                                <Ellipse MouseDown="Ellipse_MouseDown_7" Fill="Black" Height="30" Width="30"/>
+                            </Border>
+                            <Border Height="40" Width="40" Background="AliceBlue" CornerRadius="20">
+                                <Ellipse MouseDown="Ellipse_MouseDown_8" Fill="Black" Height="25" Width="25"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border Panel.ZIndex="1" Visibility="{Binding ElementName=window,Path=NotFontActive}" Margin="680 90 0 0" Background="transparent" CornerRadius="20" Padding="7" >
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse MouseDown="Ellipse_MouseDown_X" Fill="black" Height="40" Width="40"/>
+                        </StackPanel>
+                    </Border>
+                </Canvas>
+            </Border>
         </Grid>
         
     </Border>

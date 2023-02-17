@@ -10,6 +10,9 @@ namespace MyPainter
     {
         public System.Windows.Media.Brush COLOR = System.Windows.Media.Brushes.Black;
         public int dotWidth = 5;
+        public bool isPainting = false;
+        public bool isErasing = false;
+
         public string ColorActive
         {
             get { return (string)GetValue(ColorActiveProp); } set { SetValue(ColorActiveProp, value); }
@@ -60,7 +63,8 @@ namespace MyPainter
 
         private void canvas_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            paintDot(COLOR, (System.Windows.Point)e.GetPosition(canvas));
+            if(isPainting)
+                paintDot(COLOR, (System.Windows.Point)e.GetPosition(canvas));
         }
 
         private void paintDot(System.Windows.Media.Brush color, System.Windows.Point position)
@@ -133,6 +137,8 @@ namespace MyPainter
             ColorActive = "Collapsed";
             NotFontActive = "Visible";
             FontActive = "Collapsed";
+            dotWidth = 5 * 4
+                ;
         }
 
         private void Ellipse_MouseDown_6(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -141,6 +147,7 @@ namespace MyPainter
             ColorActive = "Collapsed";
             NotFontActive = "Visible";
             FontActive = "Collapsed";
+            dotWidth = 5 * 3;
         }
 
         private void Ellipse_MouseDown_7(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -149,6 +156,7 @@ namespace MyPainter
             ColorActive = "Collapsed";
             NotFontActive = "Visible";
             FontActive = "Collapsed";
+            dotWidth = 5 * 2;
         }
 
         private void Ellipse_MouseDown_8(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -157,6 +165,25 @@ namespace MyPainter
             ColorActive = "Collapsed";
             NotFontActive = "Visible";
             FontActive = "Collapsed";
+            dotWidth = 5;
+        }
+
+        private void canvas_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            isPainting = true;
+
+        }
+
+        private void canvas_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            isPainting = true;
+            COLOR = System.Windows.Media.Brushes.White;
+            
+        }
+
+        private void canvas_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            isPainting = false;
         }
     }
 }
