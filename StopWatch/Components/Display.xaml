@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="StopWatch.Components.Display"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Name="display">
+    <Canvas>
+        <Border CornerRadius="5"  Padding="10"  BorderBrush="White" BorderThickness="2">
+            <TextBlock Foreground="White" Text="{Binding ElementName=display, Path=text}" FontSize="80"/>
+        </Border>
+    </Canvas>
+</UserControl>
